@@ -6,6 +6,7 @@ import express from "express"
 import dotenv from "dotenv" // dependencia para manejar variables de entorno
 import { connectionMongo } from "./src/config/dataBase.js";
 import { productRouter } from "./src/routes/product.routes.js"
+import { usersRouter } from "./src/routes/users.routes.js";
 
 // 2 configurar el uso de nuestro servidor
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Le indico las rutas que voy a usar
 app.use("/productos", productRouter)
+app.use("/users", usersRouter)
 
 // 3. Ejecutar el servidor en nuestro computador
 app.listen(port, () => {console.log("We are conected", port)})
