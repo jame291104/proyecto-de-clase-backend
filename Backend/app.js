@@ -8,6 +8,7 @@ import { connectionMongo } from "./src/config/dataBase.js";
 import { productRouter } from "./src/routes/product.routes.js"
 import { usersRouter } from "./src/routes/users.routes.js";
 import { loginRouter } from "./src/routes/login.routes.js";
+import cors from 'cors'
 
 // 2 configurar el uso de nuestro servidor
 const app = express();
@@ -15,6 +16,7 @@ dotenv.config();
 connectionMongo();
 
 const port = process.env.PORT;
+app.use(cors()) // Permisos para que el backend pueda ser usado en el navegador
 
 app.use(express.json());
 
